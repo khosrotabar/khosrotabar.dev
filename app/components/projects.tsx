@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { projects } from "../data/portfolio";
 import { SectionHeading } from "./section-heading";
 
@@ -48,14 +49,23 @@ export function Projects() {
                 ))}
               </div>
               <div className="mt-6 flex gap-3">
-                <button
-                  type="button"
-                  disabled
-                  aria-label={`Case study coming soon for ${project.title}`}
-                  className="min-h-11 flex-1 cursor-not-allowed rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500"
-                >
-                  Case Study
-                </button>
+                {project.caseStudyUrl ? (
+                  <Link
+                    href={project.caseStudyUrl}
+                    className="flex min-h-11 flex-1 items-center justify-center rounded-lg bg-cyan-300 px-4 py-2 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-200"
+                  >
+                    Case Study
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    aria-label={`Case study coming soon for ${project.title}`}
+                    className="min-h-11 flex-1 cursor-not-allowed rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500"
+                  >
+                    Case Study
+                  </button>
+                )}
                 {project.githubUrl ? (
                   <a
                     href={project.githubUrl}

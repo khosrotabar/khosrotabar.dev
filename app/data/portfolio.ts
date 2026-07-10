@@ -34,6 +34,7 @@ type Project = {
   description: string;
   stack: string[];
   githubUrl?: string;
+  caseStudyUrl?: string;
 };
 
 // TODO: Add links, screenshots, and case studies for the remaining concept projects.
@@ -50,6 +51,7 @@ export const projects: Project[] = [
       "A reusable RBAC / authorization service built with Go, PostgreSQL, REST, gRPC, service-to-service authentication, local sessions, audit logs, OpenAPI docs, and a Go client SDK.",
     stack: ["Go", "PostgreSQL", "gRPC", "REST APIs", "RBAC", "OpenAPI"],
     githubUrl: "https://github.com/khosrotabar/go-rbac-api",
+    caseStudyUrl: "/projects/go-rbac-api",
   },
   {
     title: "Full-Stack MVP",
