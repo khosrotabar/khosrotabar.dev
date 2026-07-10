@@ -6,9 +6,9 @@ export function Projects() {
     <section id="projects" className="bg-slate-950/45 px-5 py-20 sm:px-8 sm:py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Selected Projects"
-          title="Concept work ready to become real case studies."
-          description="These are placeholder project concepts for v1. They avoid client claims and give the portfolio a clear structure for future proof."
+          eyebrow="Portfolio"
+          title="Selected Projects"
+          description="A collection of real projects and production-style systems I’ve built to demonstrate frontend, backend, and full-stack engineering skills."
         />
 
         <div className="grid gap-6 lg:grid-cols-3">
@@ -18,7 +18,7 @@ export function Projects() {
               className="flex h-full flex-col rounded-lg border border-white/10 bg-[#0b1424] p-5 transition-colors hover:border-cyan-300/35"
             >
               <div
-                aria-label={`${project.title} screenshot placeholder`}
+                aria-label={`${project.title} project preview`}
                 className="mb-6 aspect-[16/10] rounded-md border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.16),rgba(15,23,42,0.82)),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:auto,24px_24px,24px_24px] p-4"
               >
                 <div className="h-full rounded-md border border-cyan-200/15 bg-slate-950/55 p-3">
@@ -48,22 +48,33 @@ export function Projects() {
                 ))}
               </div>
               <div className="mt-6 flex gap-3">
-                {/* TODO: Replace with a real case study link when this project is published. */}
                 <button
                   type="button"
                   disabled
+                  aria-label={`Case study coming soon for ${project.title}`}
                   className="min-h-11 flex-1 cursor-not-allowed rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500"
                 >
                   Case Study
                 </button>
-                {/* TODO: Replace with a real GitHub link when this project repository is ready. */}
-                <button
-                  type="button"
-                  disabled
-                  className="min-h-11 flex-1 cursor-not-allowed rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500"
-                >
-                  GitHub
-                </button>
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} repository on GitHub`}
+                    className="flex min-h-11 flex-1 items-center justify-center rounded-lg border border-cyan-300/30 px-4 py-2 text-sm font-semibold text-cyan-100 transition-colors hover:border-cyan-200 hover:bg-cyan-300/10"
+                  >
+                    GitHub
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="min-h-11 flex-1 cursor-not-allowed rounded-lg border border-white/10 px-4 py-2 text-sm font-semibold text-slate-500"
+                  >
+                    GitHub
+                  </button>
+                )}
               </div>
             </article>
           ))}
