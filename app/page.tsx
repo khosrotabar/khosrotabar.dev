@@ -1,4 +1,5 @@
 import { About } from "./components/about";
+import { ArticlesPreview } from "./components/articles-preview";
 import { Contact } from "./components/contact";
 import { Experience } from "./components/experience";
 import { Footer } from "./components/footer";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Projects />
+        <ArticlesPreview />
         <TechStack />
         <Experience />
         <HowIWork />
