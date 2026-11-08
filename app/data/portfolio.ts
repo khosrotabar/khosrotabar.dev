@@ -38,7 +38,7 @@ type Project = {
   caseStudyUrl?: string;
 };
 
-// TODO: Add links, screenshots, and case studies for the remaining concept projects.
+// TODO: Add links, screenshots, and case studies for the remaining concept projects
 export const projects: Project[] = [
   {
     title: "SaaS Admin Dashboard",
