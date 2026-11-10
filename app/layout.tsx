@@ -70,10 +70,14 @@ export const metadata: Metadata = {
       "Full-Stack Developer focused on Go Backend, React, Next.js, PostgreSQL, APIs, dashboards, and SaaS MVPs.",
   },
 
+  // Versioned URLs bust browsers' long-lived favicon cache after the logo change.
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
+    icon: [
+      { url: "/logo.svg?v=2", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico?v=2",
+    apple: "/apple-icon.png?v=2",
   },
 };
 
