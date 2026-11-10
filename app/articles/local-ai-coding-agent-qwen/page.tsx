@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Footer } from "../../components/footer";
-import { Navbar } from "../../components/navbar";
 import styles from "./article.module.css";
 
 const canonical = "/articles/local-ai-coding-agent-qwen";
@@ -67,7 +65,7 @@ function CodeBlock({ children, label }: { children: string; label?: string }) {
   return (
     <div>
       {label ? (
-        <p className="mb-[-0.75rem] font-mono text-xs uppercase tracking-[0.14em] text-slate-500">
+        <p className="mb-[-0.75rem] font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground/80">
           {label}
         </p>
       ) : null}
@@ -97,49 +95,48 @@ const gpuRows = [
 
 export default function QwenCodingAgentArticle() {
   return (
-    <div className={`${styles.article} min-h-screen text-slate-100`}>
-      <Navbar />
+    <div className={`${styles.article} min-h-screen text-foreground`}>
       <main>
-        <header className="relative overflow-hidden border-b border-white/10 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20">
+        <header className="relative overflow-hidden border-b border-border px-5 pb-16 pt-28 sm:px-8 sm:pb-24 sm:pt-36">
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:42px_42px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
           <div className="relative mx-auto max-w-5xl">
             <Link
               href="/articles"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 transition-colors hover:text-cyan-200"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-primary"
             >
               <span aria-hidden="true">←</span> All articles
             </Link>
-            <div className="mt-10 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
-              <span className="rounded-full border border-cyan-300/25 bg-cyan-300/10 px-3 py-1.5 text-cyan-200">
+            <div className="mt-10 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">
+              <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-primary">
                 Real-world local AI experiment
               </span>
               <time dateTime="2026-09-04">September 4, 2026</time>
               <span aria-hidden="true">·</span>
               <span>18 min read</span>
             </div>
-            <h1 className="mt-7 max-w-5xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mt-7 max-w-5xl font-display text-4xl font-bold leading-[1.05] tracking-[-0.045em] text-foreground sm:text-6xl lg:text-7xl">
               A 50-Token/s AI Coding Agent for $0.08/Hour
             </h1>
-            <p className="mt-7 max-w-4xl text-lg font-medium leading-8 text-slate-200 sm:text-2xl sm:leading-10">
+            <p className="mt-7 max-w-4xl text-lg font-medium leading-8 text-foreground/85 sm:text-2xl sm:leading-10">
               Qwen3.8-27B · 1× RTX 3090 · ~96K context · no per-token billing
             </p>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-slate-400 sm:text-lg sm:leading-8">
+            <p className="mt-3 max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
               From failed fine-tuning experiments to Ollama, GPU rentals, DeepSeek Harness,
               OpenCode, and a one-command deployment setup.
             </p>
             <div className="mt-10 flex items-center gap-4">
-              <div className="flex size-11 items-center justify-center rounded-full border border-cyan-300/30 bg-cyan-300/10 text-sm font-bold text-cyan-100">
+              <div className="flex size-11 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-sm font-bold text-primary">
                 MK
               </div>
               <div>
-                <p className="font-semibold text-white">Mohammad Khosrotabar</p>
-                <p className="text-sm text-slate-400">Full-Stack Developer</p>
+                <p className="font-semibold text-foreground">Mohammad Khosrotabar</p>
+                <p className="text-sm text-muted-foreground">Full-Stack Developer</p>
               </div>
             </div>
           </div>
         </header>
 
-        <div className={`${styles.wideColumn} -mt-7 relative z-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-4`}>
+        <div className={`${styles.wideColumn} -mt-7 relative z-10 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-4`}>
           {[
             ["$0.08", "per GPU hour"],
             ["40–50", "generated tok/s"],
@@ -147,15 +144,15 @@ export default function QwenCodingAgentArticle() {
             ["24 GB", "RTX 3090 VRAM"],
           ].map(([value, label]) => (
             <div key={label} className="bg-[#091321] px-5 py-6 sm:px-6">
-              <p className="text-2xl font-semibold text-white sm:text-3xl">{value}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.12em] text-slate-500">{label}</p>
+              <p className="text-2xl font-semibold text-foreground sm:text-3xl">{value}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted-foreground/80">{label}</p>
             </div>
           ))}
         </div>
 
         <div className={`${styles.readingColumn} mt-5 text-center`}>
-          <p className="font-mono text-xs uppercase tracking-[0.14em] text-slate-500">
-            At my observed rental rate: <span className="text-cyan-200">~$12.80 for 160 GPU hours</span>
+          <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground/80">
+            At my observed rental rate: <span className="text-primary">~$12.80 for 160 GPU hours</span>
           </p>
         </div>
 
@@ -171,20 +168,20 @@ export default function QwenCodingAgentArticle() {
             theoretical benchmark—it was a genuinely useful coding-agent setup on a consumer GPU.
           </p>
 
-          <div className="mt-7 rounded-xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(34,211,238,0.11),rgba(11,20,36,0.82))] p-6 sm:p-7">
+          <div className="mt-7 rounded-xl border border-primary/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.11),rgba(11,20,36,0.82))] p-6 sm:p-7">
             <div className="grid gap-4 text-center sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
               <div>
-                <p className="!mt-0 text-xl font-semibold !text-white">8 hours/day</p>
+                <p className="!mt-0 text-xl font-semibold !text-foreground">8 hours/day</p>
               </div>
-              <span className="hidden font-mono text-cyan-300 sm:block">×</span>
+              <span className="hidden font-mono text-primary sm:block">×</span>
               <div>
-                <p className="!mt-0 text-xl font-semibold !text-white">20 working days</p>
-                <p className="!mt-1 text-xs uppercase tracking-[0.12em] !text-slate-500">160 hours total</p>
+                <p className="!mt-0 text-xl font-semibold !text-foreground">20 working days</p>
+                <p className="!mt-1 text-xs uppercase tracking-[0.12em] !text-muted-foreground/80">160 hours total</p>
               </div>
-              <span className="hidden font-mono text-cyan-300 sm:block">×</span>
+              <span className="hidden font-mono text-primary sm:block">×</span>
               <div>
-                <p className="!mt-0 text-xl font-semibold !text-white">$0.08/hour</p>
-                <p className="!mt-1 text-2xl font-semibold !text-cyan-200">$12.80</p>
+                <p className="!mt-0 text-xl font-semibold !text-foreground">$0.08/hour</p>
+                <p className="!mt-1 text-2xl font-semibold !text-primary">$12.80</p>
               </div>
             </div>
           </div>
@@ -297,14 +294,14 @@ export default function QwenCodingAgentArticle() {
             shades: it is smaller and faster to move, but it is not mathematically identical.
           </p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-[#0b1424]/80 p-6">
+            <div className="rounded-xl border border-border bg-[#0b1424]/80 p-6">
               <p className={styles.eyebrow}>Q4_K_M</p>
-              <p className="mt-3 text-3xl font-semibold text-white">~17–18 GB</p>
+              <p className="mt-3 text-3xl font-semibold text-foreground">~17–18 GB</p>
               <p>Fits accessible consumer GPUs, offers much better price/performance, and became my daily default.</p>
             </div>
-            <div className="rounded-xl border border-white/10 bg-[#0b1424]/80 p-6">
+            <div className="rounded-xl border border-border bg-[#0b1424]/80 p-6">
               <p className={styles.eyebrow}>BF16</p>
-              <p className="mt-3 text-3xl font-semibold text-white">~56 GB</p>
+              <p className="mt-3 text-3xl font-semibold text-foreground">~56 GB</p>
               <p>Preserves more precision, but requires high-VRAM or multi-GPU hardware and raises rental cost.</p>
             </div>
           </div>
@@ -428,72 +425,72 @@ export default function QwenCodingAgentArticle() {
             </div>
 
             <div className="mt-7 grid gap-5 lg:grid-cols-2">
-              <div className="relative overflow-hidden rounded-xl border border-cyan-300/25 bg-[linear-gradient(145deg,rgba(34,211,238,0.12),rgba(11,20,36,0.9)_58%)] p-6 sm:p-8">
-                <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-cyan-300/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-xl border border-primary/30 bg-[linear-gradient(145deg,rgba(34,211,238,0.12),rgba(11,20,36,0.9)_58%)] p-6 sm:p-8">
+                <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-primary/10 blur-3xl" />
                 <div className="relative">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] !text-cyan-300">
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] !text-primary">
                         Budget configuration
                       </p>
-                      <h4 className="mt-2 text-2xl font-semibold text-white">1× RTX 3090</h4>
-                      <p className="!mt-1 text-sm !text-slate-400">24 GB VRAM · Qwen3.8-27B Q4</p>
+                      <h4 className="mt-2 text-2xl font-semibold text-foreground">1× RTX 3090</h4>
+                      <p className="!mt-1 text-sm !text-muted-foreground">24 GB VRAM · Qwen3.8-27B Q4</p>
                     </div>
                     <p className="!mt-0 text-right">
-                      <span className="block text-2xl font-semibold text-white">$0.08</span>
-                      <span className="text-xs uppercase tracking-[0.12em] text-slate-500">per hour</span>
+                      <span className="block text-2xl font-semibold text-foreground">$0.08</span>
+                      <span className="text-xs uppercase tracking-[0.12em] text-muted-foreground/80">per hour</span>
                     </p>
                   </div>
 
-                  <div className="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10">
+                  <div className="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
                     <div className="bg-[#081321] p-4">
-                      <p className="!mt-0 text-xl font-semibold !text-white">~96K</p>
-                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-slate-500">Configured context</p>
+                      <p className="!mt-0 text-xl font-semibold !text-foreground">~96K</p>
+                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-muted-foreground/80">Configured context</p>
                     </div>
                     <div className="bg-[#081321] p-4">
-                      <p className="!mt-0 text-xl font-semibold !text-white">~40–50</p>
-                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-slate-500">Generated tok/s</p>
+                      <p className="!mt-0 text-xl font-semibold !text-foreground">~40–50</p>
+                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-muted-foreground/80">Generated tok/s</p>
                     </div>
                   </div>
 
-                  <div className="mt-6 border-t border-white/10 pt-5">
-                    <p className="!mt-0 text-sm !text-slate-400">160 hours × $0.08</p>
-                    <p className="!mt-1 text-3xl font-semibold !text-cyan-200">$12.80 / month</p>
+                  <div className="mt-6 border-t border-border pt-5">
+                    <p className="!mt-0 text-sm !text-muted-foreground">160 hours × $0.08</p>
+                    <p className="!mt-1 text-3xl font-semibold !text-primary">$12.80 / month</p>
                   </div>
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-xl border border-blue-300/25 bg-[linear-gradient(145deg,rgba(59,130,246,0.13),rgba(11,20,36,0.9)_58%)] p-6 sm:p-8">
-                <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-blue-300/10 blur-3xl" />
+              <div className="relative overflow-hidden rounded-xl border border-chart-3/30 bg-[linear-gradient(145deg,rgba(59,130,246,0.13),rgba(11,20,36,0.9)_58%)] p-6 sm:p-8">
+                <div className="pointer-events-none absolute -right-16 -top-16 size-48 rounded-full bg-chart-3/10 blur-3xl" />
                 <div className="relative">
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div>
-                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] !text-blue-300">
+                      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] !text-chart-3">
                         More headroom
                       </p>
-                      <h4 className="mt-2 text-2xl font-semibold text-white">2× RTX 3090</h4>
-                      <p className="!mt-1 text-sm !text-slate-400">48 GB aggregate VRAM · Qwen3.8-27B Q4</p>
+                      <h4 className="mt-2 text-2xl font-semibold text-foreground">2× RTX 3090</h4>
+                      <p className="!mt-1 text-sm !text-muted-foreground">48 GB aggregate VRAM · Qwen3.8-27B Q4</p>
                     </div>
                     <p className="!mt-0 text-right">
-                      <span className="block text-2xl font-semibold text-white">$0.18</span>
-                      <span className="text-xs uppercase tracking-[0.12em] text-slate-500">per hour</span>
+                      <span className="block text-2xl font-semibold text-foreground">$0.18</span>
+                      <span className="text-xs uppercase tracking-[0.12em] text-muted-foreground/80">per hour</span>
                     </p>
                   </div>
 
-                  <div className="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10">
+                  <div className="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
                     <div className="bg-[#081321] p-4">
-                      <p className="!mt-0 text-xl font-semibold !text-white">Larger</p>
-                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-slate-500">Context headroom</p>
+                      <p className="!mt-0 text-xl font-semibold !text-foreground">Larger</p>
+                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-muted-foreground/80">Context headroom</p>
                     </div>
                     <div className="bg-[#081321] p-4">
-                      <p className="!mt-0 text-xl font-semibold !text-white">~80</p>
-                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-slate-500">Generated tok/s</p>
+                      <p className="!mt-0 text-xl font-semibold !text-foreground">~80</p>
+                      <p className="!mt-1 text-xs uppercase tracking-[0.1em] !text-muted-foreground/80">Generated tok/s</p>
                     </div>
                   </div>
 
-                  <div className="mt-6 border-t border-white/10 pt-5">
-                    <p className="!mt-0 text-sm !text-slate-400">160 hours × $0.18</p>
-                    <p className="!mt-1 text-3xl font-semibold !text-blue-200">$28.80 / month</p>
+                  <div className="mt-6 border-t border-border pt-5">
+                    <p className="!mt-0 text-sm !text-muted-foreground">160 hours × $0.18</p>
+                    <p className="!mt-1 text-3xl font-semibold !text-chart-3">$28.80 / month</p>
                   </div>
                 </div>
               </div>
@@ -565,11 +562,11 @@ export default function QwenCodingAgentArticle() {
             process, and reduce perceived responsiveness.
           </p>
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
-            <div className="border-l-2 border-cyan-300 pl-5">
+            <div className="border-l-2 border-primary pl-5">
               <h3 className="!mt-0">Configured context</h3>
               <p>The maximum window available to the session.</p>
             </div>
-            <div className="border-l-2 border-blue-400 pl-5">
+            <div className="border-l-2 border-chart-3 pl-5">
               <h3 className="!mt-0">Occupied context</h3>
               <p>The portion currently filled by prompts, files, tool results, and responses.</p>
             </div>
@@ -583,7 +580,7 @@ export default function QwenCodingAgentArticle() {
         </Section>
 
         <Section id="cost" eyebrow="The headline math" title="Where “about $42 per month” comes from">
-          <div className="mt-7 rounded-xl border border-cyan-300/25 bg-[linear-gradient(135deg,rgba(34,211,238,0.12),rgba(11,20,36,0.85))] p-6 sm:p-8">
+          <div className="mt-7 rounded-xl border border-primary/30 bg-[linear-gradient(135deg,rgba(34,211,238,0.12),rgba(11,20,36,0.85))] p-6 sm:p-8">
             <div className={styles.costEquation}>
               <span className={styles.costNumber}>8 hours/day</span>
               <span className={styles.costOperator}>×</span>
@@ -591,7 +588,7 @@ export default function QwenCodingAgentArticle() {
               <span className={styles.costOperator}>×</span>
               <span className={styles.costNumber}>$0.26/hour</span>
               <span className={styles.costOperator}>=</span>
-              <span className="text-3xl font-bold text-cyan-200">$41.60</span>
+              <span className="text-3xl font-bold text-primary">$41.60</span>
             </div>
             <p className="text-center">160 rented GPU hours in a working month, at one price I personally found.</p>
           </div>
@@ -668,8 +665,8 @@ ollama ps`}</CodeBlock>
 
         <Section id="strengths-limits" eyebrow="The honest split" title="Where Qwen impressed me—and where Codex is still better">
           <div className="mt-7 grid gap-5 lg:grid-cols-2">
-            <div className="rounded-xl border border-emerald-300/20 bg-emerald-300/[0.06] p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-emerald-300">Strongest experiences</p>
+            <div className="rounded-xl border border-primary/25 bg-primary/[0.06] p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-primary">Strongest experiences</p>
               <ul>
                 <li>Greenfield applications and prototypes</li>
                 <li>Frontend UI, React, Next.js, landing pages, and dashboards</li>
@@ -677,8 +674,8 @@ ollama ps`}</CodeBlock>
                 <li>High-volume developer chat</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-blue-300/20 bg-blue-300/[0.06] p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.15em] text-blue-300">I still choose Codex for</p>
+            <div className="rounded-xl border border-chart-3/25 bg-chart-3/[0.06] p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.15em] text-chart-3">I still choose Codex for</p>
               <ul>
                 <li>Deep architecture and complicated refactors</li>
                 <li>Difficult debugging</li>
@@ -822,9 +819,9 @@ ollama ps`}</CodeBlock>
             DeepSeek Harness or OpenCode, test genuine work, and only then consider bigger context,
             BF16, or fine-tuning.
           </p>
-          <div className="my-9 rounded-xl border border-cyan-300/25 bg-[#081421] p-7 text-center sm:p-10">
+          <div className="my-9 rounded-xl border border-primary/30 bg-[#081421] p-7 text-center sm:p-10">
             <p className={styles.eyebrow}>My favorite setup</p>
-            <p className="mt-5 font-mono text-lg leading-9 text-white sm:text-2xl">
+            <p className="mt-5 font-mono text-lg leading-9 text-foreground sm:text-2xl">
               Qwen3.8-27B Q4<br />+ Ollama<br />+ 128K context<br />+ rented RTX 5090<br />+ DeepSeek Harness / OpenCode
             </p>
           </div>
@@ -854,24 +851,23 @@ ollama ps`}</CodeBlock>
             <li><a href="https://github.com/khosrotabar/local-ai-coding-box" target="_blank" rel="noreferrer">local-ai-coding-box</a> — my reproducible Ubuntu/Ollama bootstrap.</li>
             <li><a href="https://clore.ai" target="_blank" rel="noreferrer">Clore.ai</a> and <a href="https://vast.ai" target="_blank" rel="noreferrer">Vast.ai</a> — the GPU rental marketplaces I tested.</li>
           </ul>
-          <p className="!mt-10 border-t border-white/10 pt-8 text-sm !text-slate-500">
+          <p className="!mt-10 border-t border-border pt-8 text-sm !text-muted-foreground/80">
             Hardware throughput, availability, and rental pricing change frequently. Measurements
             in this article describe my own sessions and should be treated as field observations.
           </p>
         </Section>
 
-        <div className={`${styles.readingColumn} my-20 rounded-xl border border-white/10 bg-[#0b1424] p-7 sm:p-9`}>
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-300">Continue exploring</p>
+        <div className={`${styles.readingColumn} my-20 rounded-xl border border-border bg-card p-7 sm:p-9`}>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Continue exploring</p>
           <div className="mt-4 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
-              <h2 className="text-2xl font-semibold text-white">More engineering field notes are coming.</h2>
-              <p className="mt-2 leading-7 text-slate-400">Frontend security, authorization systems, and practical AI experiments.</p>
+              <h2 className="text-2xl font-semibold text-foreground">More engineering field notes are coming.</h2>
+              <p className="mt-2 leading-7 text-muted-foreground">Frontend security, authorization systems, and practical AI experiments.</p>
             </div>
-            <Link href="/articles" className="shrink-0 font-semibold text-cyan-200 hover:text-cyan-100">All articles →</Link>
+            <Link href="/articles" className="shrink-0 font-semibold text-primary hover:text-primary">All articles →</Link>
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

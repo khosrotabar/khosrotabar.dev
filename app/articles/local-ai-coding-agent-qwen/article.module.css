@@ -1,10 +1,10 @@
 .article {
-  --article-line: rgba(148, 163, 184, 0.16);
-  --article-panel: rgba(11, 20, 36, 0.82);
+  --article-line: rgba(255, 255, 255, 0.09);
+  --article-panel: rgba(18, 21, 24, 0.85);
   background:
-    radial-gradient(circle at 16% 5%, rgba(34, 211, 238, 0.1), transparent 25rem),
-    radial-gradient(circle at 87% 14%, rgba(59, 130, 246, 0.09), transparent 24rem),
-    #0f172a;
+    radial-gradient(circle at 16% 5%, rgba(81, 229, 126, 0.08), transparent 25rem),
+    radial-gradient(circle at 87% 14%, rgba(0, 181, 182, 0.06), transparent 24rem),
+    transparent;
 }
 
 .readingColumn {
@@ -24,6 +24,7 @@
 
 .section h2 {
   color: #fff;
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.75rem, 4vw, 2.45rem);
   font-weight: 650;
   letter-spacing: -0.035em;
@@ -31,7 +32,7 @@
 }
 
 .section h3 {
-  color: #f8fafc;
+  color: #eff2f4;
   font-size: 1.25rem;
   font-weight: 650;
   line-height: 1.4;
@@ -40,7 +41,7 @@
 
 .section p,
 .section li {
-  color: #cbd5e1;
+  color: #c9cfd3;
   font-size: 1.0625rem;
   line-height: 1.9;
 }
@@ -65,23 +66,23 @@
 }
 
 .section strong {
-  color: #f8fafc;
+  color: #eff2f4;
   font-weight: 650;
 }
 
 .section a {
-  color: #a5f3fc;
+  color: #8ff0aa;
   text-decoration: underline;
-  text-decoration-color: rgba(165, 243, 252, 0.35);
+  text-decoration-color: rgba(143, 240, 170, 0.35);
   text-underline-offset: 0.2em;
 }
 
 .section a:hover {
-  text-decoration-color: #a5f3fc;
+  text-decoration-color: #8ff0aa;
 }
 
 .eyebrow {
-  color: #67e8f9;
+  color: #51e57e;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -89,7 +90,7 @@
 }
 
 .lead {
-  color: #dbeafe;
+  color: #e3e9f5;
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   line-height: 1.65;
 }
@@ -102,10 +103,10 @@
 }
 
 .code {
-  background: #050b15;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: #0a0e0f;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 0.75rem;
-  color: #cffafe;
+  color: #dcfbe5;
   font-family: var(--font-mono);
   font-size: 0.84rem;
   line-height: 1.8;
@@ -116,9 +117,9 @@
 }
 
 .callout {
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.09), rgba(15, 23, 42, 0.5));
-  border: 1px solid rgba(103, 232, 249, 0.22);
-  border-left: 3px solid #67e8f9;
+  background: linear-gradient(135deg, rgba(81, 229, 126, 0.07), rgba(18, 21, 24, 0.5));
+  border: 1px solid rgba(81, 229, 126, 0.22);
+  border-left: 3px solid #51e57e;
   border-radius: 0.75rem;
   margin-top: 1.75rem;
   padding: 1.25rem 1.4rem;
@@ -129,7 +130,7 @@
 }
 
 .quote {
-  color: #e0f2fe;
+  color: #e3fbe9;
   font-size: clamp(1.35rem, 3vw, 1.8rem);
   font-weight: 550;
   letter-spacing: -0.02em;
@@ -140,7 +141,7 @@
 }
 
 .quote::before {
-  background: linear-gradient(#67e8f9, #3b82f6);
+  background: linear-gradient(#51e57e, #6a94f4);
   border-radius: 999px;
   content: "";
   inset: 0 auto 0 0;
@@ -170,15 +171,15 @@
 }
 
 .table th {
-  background: rgba(2, 6, 23, 0.62);
-  color: #a5f3fc;
+  background: rgba(6, 8, 9, 0.62);
+  color: #8ff0aa;
   font-size: 0.74rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .table td {
-  color: #cbd5e1;
+  color: #c9cfd3;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -197,10 +198,10 @@
 }
 
 .diagramNode {
-  background: rgba(15, 23, 42, 0.82);
-  border: 1px solid rgba(103, 232, 249, 0.22);
+  background: rgba(18, 21, 24, 0.85);
+  border: 1px solid rgba(81, 229, 126, 0.22);
   border-radius: 0.65rem;
-  color: #e2e8f0;
+  color: #dfe4e7;
   font-size: 0.83rem;
   font-weight: 650;
   padding: 0.85rem 1rem;
@@ -208,12 +209,12 @@
 }
 
 .diagramArrow {
-  color: #67e8f9;
+  color: #51e57e;
   font-family: var(--font-mono);
 }
 
 .timeline {
-  border-left: 1px solid rgba(103, 232, 249, 0.28);
+  border-left: 1px solid rgba(81, 229, 126, 0.28);
   display: grid;
   gap: 2rem;
   margin-top: 2rem;
@@ -225,8 +226,8 @@
 }
 
 .timelineItem::before {
-  background: #0f172a;
-  border: 2px solid #67e8f9;
+  background: #0b0e10;
+  border: 2px solid #51e57e;
   border-radius: 999px;
   content: "";
   height: 0.75rem;
@@ -256,7 +257,7 @@
 }
 
 .costOperator {
-  color: #67e8f9;
+  color: #51e57e;
   font-family: var(--font-mono);
 }
 

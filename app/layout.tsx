@@ -1,5 +1,23 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { ChatWidget } from "./components/chrome/chat-widget";
+import { CustomCursor } from "./components/chrome/custom-cursor";
+import { GradientField } from "./components/chrome/gradient-field";
+import { Preloader } from "./components/chrome/preloader";
+import { ScrollProgress } from "./components/chrome/scroll-progress";
+import { SiteFooter } from "./components/chrome/site-footer";
+import { SiteHeader } from "./components/chrome/site-header";
+import { SmoothScrollProvider } from "./components/chrome/smooth-scroll";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono", display: "swap" });
+
+export const viewport: Viewport = {
+  themeColor: "#0b0e10",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://khosrotabar.dev"),
@@ -67,10 +85,26 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full scroll-smooth antialiased"
-      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+      className={`dark preload ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full font-sans antialiased">
+        <noscript>
+          <style>{`html.preload{overflow:auto}html.preload body::before{display:none}`}</style>
+        </noscript>
+        <SmoothScrollProvider>
+          <GradientField />
+          <ScrollProgress />
+          <CustomCursor />
+          <Preloader />
+          <div className="relative z-10">
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+            <ChatWidget />
+          </div>
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
